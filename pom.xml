@@ -10,15 +10,12 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>crappBackend</artifactId>
-<<<<<<< HEAD
 	<version>0.0.1-SNAPSHOT</version>
 	<name>crappBackend</name>
 	<description>Demo project for Spring Boot</description>
-=======
 	<version>1.0latest</version>
 	<name>crappBackend</name>
 	<description>Crapp API</description>
->>>>>>> 89cb9d3 (CD Implemented)
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -47,14 +44,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< HEAD
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-=======
->>>>>>> 89cb9d3 (CD Implemented)
 	</dependencies>
 
 	<build>
@@ -71,8 +65,6 @@
 					</excludes>
 				</configuration>
 			</plugin>
-<<<<<<< HEAD
-=======
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -80,8 +72,6 @@
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
->>>>>>> 89cb9d3 (CD Implemented)
 		</plugins>
 	</build>
-
 </project>
