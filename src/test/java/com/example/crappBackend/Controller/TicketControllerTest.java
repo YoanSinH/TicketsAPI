@@ -3,6 +3,10 @@ package com.example.crappBackend.Controller;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
+<<<<<<< HEAD
+=======
+import static org.mockito.Mockito.mock;
+>>>>>>> 89cb9d3 (CD Implemented)
 import static org.mockito.Mockito.when;
 
 import com.example.crappBackend.model.Ticket;
@@ -48,6 +52,10 @@ class TicketControllerTest {
         ticket.setEmail("jane.doe@example.org");
         ticket.setId(123L);
         ticket.setPicked(true);
+<<<<<<< HEAD
+=======
+        ticket.setStatus("Status");
+>>>>>>> 89cb9d3 (CD Implemented)
         ticket.setUrl("https://example.org/example");
         String content = (new ObjectMapper()).writeValueAsString(ticket);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/ticket")
@@ -74,6 +82,10 @@ class TicketControllerTest {
         ticket.setEmail("jane.doe@example.org");
         ticket.setId(123L);
         ticket.setPicked(true);
+<<<<<<< HEAD
+=======
+        ticket.setStatus("Status");
+>>>>>>> 89cb9d3 (CD Implemented)
         ticket.setUrl("https://example.org/example");
         String content = (new ObjectMapper()).writeValueAsString(ticket);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/ticket")
@@ -171,6 +183,73 @@ class TicketControllerTest {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Method under test: {@link TicketController#getHistoryByParam(String, String)}
+     */
+    @Test
+    void testGetHistoryByParam() throws Exception {
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/ticket/history/{email}/{param}",
+                "jane.doe@example.org", "Param");
+        MockMvcBuilders.standaloneSetup(this.ticketController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.content().string("[]"));
+    }
+
+    /**
+     * Method under test: {@link TicketController#getHistoryByParam(String, String)}
+     */
+    @Test
+    void testGetHistoryByParam2() throws Exception {
+        MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/ticket/history/{email}/{param}",
+                "jane.doe@example.org", "Param");
+        getResult.contentType("https://example.org/example");
+        MockMvcBuilders.standaloneSetup(this.ticketController)
+                .build()
+                .perform(getResult)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.content().string("[]"));
+    }
+
+    /**
+     * Method under test: {@link TicketController#getTicketByEmail(String)}
+     */
+    @Test
+    void testGetTicketByEmail() throws Exception {
+        when(this.ticketRepository.findByEmail((String) any())).thenReturn((Iterable<Ticket>) mock(Iterable.class));
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/ticket/user/{email}",
+                "jane.doe@example.org");
+        MockMvcBuilders.standaloneSetup(this.ticketController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.content().string("[]"));
+    }
+
+    /**
+     * Method under test: {@link TicketController#getTicketByEmail(String)}
+     */
+    @Test
+    void testGetTicketByEmail2() throws Exception {
+        when(this.ticketRepository.findByEmail((String) any())).thenReturn((Iterable<Ticket>) mock(Iterable.class));
+        MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/ticket/user/{email}",
+                "jane.doe@example.org");
+        getResult.contentType("https://example.org/example");
+        MockMvcBuilders.standaloneSetup(this.ticketController)
+                .build()
+                .perform(getResult)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.content().string("[]"));
+    }
+
+    /**
+>>>>>>> 89cb9d3 (CD Implemented)
      * Method under test: {@link TicketController#getTicketById(Long)}
      */
     @Test
@@ -181,6 +260,10 @@ class TicketControllerTest {
         ticket.setEmail("jane.doe@example.org");
         ticket.setId(123L);
         ticket.setPicked(true);
+<<<<<<< HEAD
+=======
+        ticket.setStatus("Status");
+>>>>>>> 89cb9d3 (CD Implemented)
         ticket.setUrl("https://example.org/example");
         Optional<Ticket> ofResult = Optional.of(ticket);
         when(this.ticketRepository.findById((Long) any())).thenReturn(ofResult);
@@ -193,7 +276,11 @@ class TicketControllerTest {
                 .andExpect(MockMvcResultMatchers.content()
                         .string(
                                 "{\"id\":123,\"email\":\"jane.doe@example.org\",\"direction\":\"Direction\",\"description\":\"The characteristics"
+<<<<<<< HEAD
                                         + " of someone or something\",\"url\":\"https://example.org/example\",\"picked\":true}"));
+=======
+                                        + " of someone or something\",\"url\":\"https://example.org/example\",\"picked\":true,\"status\":\"Status\"}"));
+>>>>>>> 89cb9d3 (CD Implemented)
     }
 
     /**
@@ -220,6 +307,10 @@ class TicketControllerTest {
         ticket.setEmail("jane.doe@example.org");
         ticket.setId(123L);
         ticket.setPicked(true);
+<<<<<<< HEAD
+=======
+        ticket.setStatus("Status");
+>>>>>>> 89cb9d3 (CD Implemented)
         ticket.setUrl("https://example.org/example");
         Optional<Ticket> ofResult = Optional.of(ticket);
         when(this.ticketRepository.findById((Long) any())).thenReturn(ofResult);
@@ -233,7 +324,11 @@ class TicketControllerTest {
                 .andExpect(MockMvcResultMatchers.content()
                         .string(
                                 "{\"id\":123,\"email\":\"jane.doe@example.org\",\"direction\":\"Direction\",\"description\":\"The characteristics"
+<<<<<<< HEAD
                                         + " of someone or something\",\"url\":\"https://example.org/example\",\"picked\":true}"));
+=======
+                                        + " of someone or something\",\"url\":\"https://example.org/example\",\"picked\":true,\"status\":\"Status\"}"));
+>>>>>>> 89cb9d3 (CD Implemented)
     }
 
     /**
@@ -251,6 +346,73 @@ class TicketControllerTest {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Method under test: {@link TicketController#getTicketByParam(String, String)}
+     */
+    @Test
+    void testGetTicketByParam() throws Exception {
+        when(this.ticketRepository.findByStatus((String) any())).thenReturn((Iterable<Ticket>) mock(Iterable.class));
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/ticket/user/{email}/{status}",
+                "jane.doe@example.org", "Status");
+        MockMvcBuilders.standaloneSetup(this.ticketController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.content().string("[]"));
+    }
+
+    /**
+     * Method under test: {@link TicketController#getTicketByParam(String, String)}
+     */
+    @Test
+    void testGetTicketByParam2() throws Exception {
+        when(this.ticketRepository.findByStatus((String) any())).thenReturn((Iterable<Ticket>) mock(Iterable.class));
+        MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/ticket/user/{email}/{status}",
+                "jane.doe@example.org", "Status");
+        getResult.contentType("https://example.org/example");
+        MockMvcBuilders.standaloneSetup(this.ticketController)
+                .build()
+                .perform(getResult)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.content().string("[]"));
+    }
+
+    /**
+     * Method under test: {@link TicketController#getTicketByStatus(String)}
+     */
+    @Test
+    void testGetTicketByStatus() throws Exception {
+        when(this.ticketRepository.findByStatus((String) any())).thenReturn((Iterable<Ticket>) mock(Iterable.class));
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/ticket/filter/{status}", "Status");
+        MockMvcBuilders.standaloneSetup(this.ticketController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.content().string("[]"));
+    }
+
+    /**
+     * Method under test: {@link TicketController#getTicketByStatus(String)}
+     */
+    @Test
+    void testGetTicketByStatus2() throws Exception {
+        when(this.ticketRepository.findByStatus((String) any())).thenReturn((Iterable<Ticket>) mock(Iterable.class));
+        MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/ticket/filter/{status}", "Status");
+        getResult.contentType("https://example.org/example");
+        MockMvcBuilders.standaloneSetup(this.ticketController)
+                .build()
+                .perform(getResult)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.content().string("[]"));
+    }
+
+    /**
+>>>>>>> 89cb9d3 (CD Implemented)
      * Method under test: {@link TicketController#updateTicket(Long, Ticket)}
      */
     @Test
@@ -261,6 +423,10 @@ class TicketControllerTest {
         ticket.setEmail("jane.doe@example.org");
         ticket.setId(123L);
         ticket.setPicked(true);
+<<<<<<< HEAD
+=======
+        ticket.setStatus("Status");
+>>>>>>> 89cb9d3 (CD Implemented)
         ticket.setUrl("https://example.org/example");
         Optional<Ticket> ofResult = Optional.of(ticket);
 
@@ -270,6 +436,10 @@ class TicketControllerTest {
         ticket1.setEmail("jane.doe@example.org");
         ticket1.setId(123L);
         ticket1.setPicked(true);
+<<<<<<< HEAD
+=======
+        ticket1.setStatus("Status");
+>>>>>>> 89cb9d3 (CD Implemented)
         ticket1.setUrl("https://example.org/example");
         when(this.ticketRepository.save((Ticket) any())).thenReturn(ticket1);
         when(this.ticketRepository.findById((Long) any())).thenReturn(ofResult);
@@ -280,6 +450,10 @@ class TicketControllerTest {
         ticket2.setEmail("jane.doe@example.org");
         ticket2.setId(123L);
         ticket2.setPicked(true);
+<<<<<<< HEAD
+=======
+        ticket2.setStatus("Status");
+>>>>>>> 89cb9d3 (CD Implemented)
         ticket2.setUrl("https://example.org/example");
         String content = (new ObjectMapper()).writeValueAsString(ticket2);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.put("/api/ticket/{id}", 123L)
@@ -293,7 +467,11 @@ class TicketControllerTest {
                 .andExpect(MockMvcResultMatchers.content()
                         .string(
                                 "{\"id\":123,\"email\":\"jane.doe@example.org\",\"direction\":\"Direction\",\"description\":\"The characteristics"
+<<<<<<< HEAD
                                         + " of someone or something\",\"url\":\"https://example.org/example\",\"picked\":true}"));
+=======
+                                        + " of someone or something\",\"url\":\"https://example.org/example\",\"picked\":true,\"status\":\"Status\"}"));
+>>>>>>> 89cb9d3 (CD Implemented)
     }
 
     /**
@@ -307,6 +485,10 @@ class TicketControllerTest {
         ticket.setEmail("jane.doe@example.org");
         ticket.setId(123L);
         ticket.setPicked(true);
+<<<<<<< HEAD
+=======
+        ticket.setStatus("Status");
+>>>>>>> 89cb9d3 (CD Implemented)
         ticket.setUrl("https://example.org/example");
         Optional<Ticket> ofResult = Optional.of(ticket);
         when(this.ticketRepository.save((Ticket) any()))
@@ -319,6 +501,10 @@ class TicketControllerTest {
         ticket1.setEmail("jane.doe@example.org");
         ticket1.setId(123L);
         ticket1.setPicked(true);
+<<<<<<< HEAD
+=======
+        ticket1.setStatus("Status");
+>>>>>>> 89cb9d3 (CD Implemented)
         ticket1.setUrl("https://example.org/example");
         String content = (new ObjectMapper()).writeValueAsString(ticket1);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.put("/api/ticket/{id}", 123L)
@@ -341,6 +527,10 @@ class TicketControllerTest {
         ticket.setEmail("jane.doe@example.org");
         ticket.setId(123L);
         ticket.setPicked(true);
+<<<<<<< HEAD
+=======
+        ticket.setStatus("Status");
+>>>>>>> 89cb9d3 (CD Implemented)
         ticket.setUrl("https://example.org/example");
         when(this.ticketRepository.save((Ticket) any())).thenReturn(ticket);
         when(this.ticketRepository.findById((Long) any())).thenReturn(Optional.empty());
@@ -351,6 +541,10 @@ class TicketControllerTest {
         ticket1.setEmail("jane.doe@example.org");
         ticket1.setId(123L);
         ticket1.setPicked(true);
+<<<<<<< HEAD
+=======
+        ticket1.setStatus("Status");
+>>>>>>> 89cb9d3 (CD Implemented)
         ticket1.setUrl("https://example.org/example");
         String content = (new ObjectMapper()).writeValueAsString(ticket1);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.put("/api/ticket/{id}", 123L)
