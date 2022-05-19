@@ -4,17 +4,11 @@ import com.example.crappBackend.model.Ticket;
 import com.example.crappBackend.repository.TicketRepository;
 import com.example.crappBackend.useCase.ResourceNotFoundExeption;
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-=======
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
->>>>>>> 89cb9d3 (CD Implemented)
 import java.util.List;
 
 @RestController
@@ -29,10 +23,7 @@ public class TicketController {
     public List<Ticket> getAllTicket(){ return ticketRepository.findAll();
     }
 
-<<<<<<< HEAD
-=======
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
->>>>>>> 89cb9d3 (CD Implemented)
     @GetMapping("{id}")
     public ResponseEntity<Ticket> getTicketById(@PathVariable Long id){
         Ticket ticket = ticketRepository.findById(id)
@@ -40,8 +31,6 @@ public class TicketController {
         return ResponseEntity.ok(ticket);
     }
 
-<<<<<<< HEAD
-=======
     @GetMapping("filter/{status}")
     public ResponseEntity<List<Ticket>> getTicketByStatus(@PathVariable String status){
         List<Ticket> ticketList = new ArrayList<>();
@@ -86,7 +75,6 @@ public class TicketController {
         return new ResponseEntity<>(ticketListHistory, HttpStatus.OK);
     }*/
 
->>>>>>> 89cb9d3 (CD Implemented)
     @PostMapping
     public Ticket createTicket(@RequestBody Ticket ticket){
         return ticketRepository.save(ticket);
@@ -102,10 +90,7 @@ public class TicketController {
         updateTicket.setDescription(ticketDetails.getDescription());
         updateTicket.setUrl(ticketDetails.getUrl());
         updateTicket.setPicked(ticketDetails.getPicked());
-<<<<<<< HEAD
-=======
         updateTicket.setStatus(ticketDetails.getStatus());
->>>>>>> 89cb9d3 (CD Implemented)
 
         ticketRepository.save(updateTicket);
 

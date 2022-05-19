@@ -28,11 +28,6 @@ public class Ticket {
     private String url;
     @Column(name = "picked")
     private Boolean picked;
-<<<<<<< HEAD
-
-}
-=======
     @Column(name = "status")
     private String status;
 }
->>>>>>> 89cb9d3 (CD Implemented)

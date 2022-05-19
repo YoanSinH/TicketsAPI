@@ -11,12 +11,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 89cb9d3 (CD Implemented)
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 @RequestMapping("/api/admin")
 public class AdminController {
