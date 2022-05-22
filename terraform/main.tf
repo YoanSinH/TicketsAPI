@@ -15,7 +15,7 @@ resource "aws_instance" "app-server" {
   instance_type = "t2.micro"
 
   security_groups = [aws_security_group.allow_ssh.name]
-  key_name        = "joancifuentes5@gmail.com"
+  key_name        = "yoansinh"
 
   user_data = <<-EOF
   #!/bin/bash
@@ -42,7 +42,7 @@ resource "aws_instance" "app-server" {
 }
 
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow_http-joancifuentes5@gmail.com"
+  name        = "allow_http-yoansinh"
   description = "Allow HTTP inbound traffic"
 
   ingress {
