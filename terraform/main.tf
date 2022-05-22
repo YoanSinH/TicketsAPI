@@ -63,8 +63,8 @@ resource "aws_security_group" "allow_ssh" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-    ingress {
-    description      = "HTTP from VPC"
+  ingress {
+    description      = "HTTP for VCP"
     from_port        = 8080
     to_port          = 8080
     protocol         = "tcp"
