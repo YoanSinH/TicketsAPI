@@ -7,38 +7,38 @@ terraform {
 }
 
 provider "aws" {
-    region = "us-east-1"
+  region = "us-east-1"
 }
 
 resource "aws_instance" "app-server" {
-    ami           = "ami-0ff8a91507f77f867"
-    instance_type = "t2.micro"
+  ami           = "ami-0ff8a91507f77f867"
+  instance_type = "t2.micro"
 
-    security_groups = [aws_security_group.allow_ssh.name]
-    key_name        = "Crapp Backend"
+  security_groups = [aws_security_group.allow_ssh.name]
+  key_name        = "Crapp Backend"
 
-    user_data = <<-EOF
-    #!/bin/bash
-    set -ex
-    sudo yum update -y
-    sudo yum install docker -y
-    sudo service docker start
-    sudo docker pull mysql
-    sudo usermod -a -G docker ec2-user
-    sudo docker run -d -p 13306:3306 --name mysql_containter -e MYSQL_ROOT_PASSWORD=root mysql:latest --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+  user_data = <<-EOF
+  #!/bin/bash
+  set -ex
+  sudo yum update -y
+  sudo yum install docker -y
+  sudo service docker start
+  sudo docker pull mysql
+  sudo usermod -a -G docker ec2-user
+  sudo docker run -d -p 13306:3306 --name mysql_containter -e MYSQL_ROOT_PASSWORD=root mysql:latest --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     
-    sudo docker network create --driver bridge my-net
-    sudo network disconnect bridge mysql_container
-    sudo network connect my-net mysql_container
+  sudo docker network create --driver bridge my-net
+  sudo network disconnect bridge mysql_container
+  sudo network connect my-net mysql_container
     
-    sudo docker run -d --network my-net -p 80:8080 yoan1x0/crapp:latest
+  sudo docker run -d --network my-net -p 80:8080 yoan1x0/crapp:latest
   EOF
 
-    user_data_replace_on_change = true
+  user_data_replace_on_change = true
 
-    tags = {
-        Name = "joancifuentes5@gmail.com"
-    }
+  tags = {
+    Name = "joancifuentes5@gmail.com"
+  }
 }
 
 resource "aws_security_group" "allow_ssh" {
