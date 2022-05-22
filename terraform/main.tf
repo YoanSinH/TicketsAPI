@@ -15,7 +15,7 @@ resource "aws_instance" "app-server" {
   instance_type = "t2.micro"
 
   security_groups = [aws_security_group.allow_ssh.name]
-  key_name        = "Crapp Backend"
+  key_name        = "joancifuentes5@gmail.com"
 
   user_data = <<-EOF
   #!/bin/bash
