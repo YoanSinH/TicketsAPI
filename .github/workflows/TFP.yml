@@ -41,4 +41,6 @@ jobs:
         terraform plan -input=false -no-color
 
     - name: Apply Terraform
-      run: terraform apply -auto-approve
+      run: |
+        cd terraform/
+        terraform apply -auto-approve
