@@ -42,7 +42,7 @@ resource "aws_instance" "app-server" {
 }
 
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow_http-1x0"
+  name        = "allow_http-joancifuentes5@gmail.com"
   description = "Allow HTTP inbound traffic"
 
   ingress {
