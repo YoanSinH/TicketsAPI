@@ -15,7 +15,7 @@ resource "aws_instance" "app-server" {
     instance_type = "t2.micro"
 
     security_groups = [aws_security_group.allow_ssh.name]
-    key_name        = "joancifuentes5@gmail.com"
+    key_name        = "Crapp Backend"
 
     user_data = <<-EOF
     #!/bin/bash
@@ -58,6 +58,15 @@ resource "aws_security_group" "allow_ssh" {
     description      = "HTTP from VPC"
     from_port        = 80
     to_port          = 80
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+    ingress {
+    description      = "HTTP from VPC"
+    from_port        = 8080
+    to_port          = 8080
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
