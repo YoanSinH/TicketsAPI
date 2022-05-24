@@ -40,7 +40,7 @@ resource "aws_instance" "app-server" {
 }
 
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow_http-yoansinh"
+  name        = "allow_http-yoan1x0"
   description = "Allow HTTP inbound traffic"
 
   ingress {
