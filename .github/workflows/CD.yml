@@ -1,7 +1,7 @@
-name: CD
+name: Continuous Delivery
 on:
   workflow_run:
-    workflows: [ "CI Maven" ]
+    workflows: [ "Continuous Integration" ]
     types: [ completed ]
     branches: [ master ]
 

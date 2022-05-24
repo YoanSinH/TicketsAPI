@@ -1,5 +1,4 @@
-name: CI maven
-
+name: Continuous Integration
 on:
   push:
     branches:
