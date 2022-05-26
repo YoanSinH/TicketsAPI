@@ -25,11 +25,9 @@ resource "aws_instance" "app-server" {
   sudo service docker start
   sudo docker pull mysql
   sudo usermod -a -G docker ec2-user
-  sudo docker run -d -p 13306:3306 --name mysql_containter -e MYSQL_ROOT_PASSWORD=root mysql:latest --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
   sudo docker network create --driver bridge my-net
-  sudo docker network disconnect bridge mysql_container
-  sudo docker network connect my-net mysql_container
-  sudo docker run -d --network my-net -p 8080:8080 yoan1x0/crapp:master
+  sudo docker run -d -p 13306:3306 --name mysql_container --network my-net -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=test mysql
+  sudo docker run -d -p 8080:8080 -- name crapp_container --network my-net yoan1x0/crapp:master
   EOF
 
   user_data_replace_on_change = true
